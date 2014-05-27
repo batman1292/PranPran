@@ -1,0 +1,37 @@
+PODS:
+  - AFNetworking (2.2.4):
+    - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+    - AFNetworking/UIKit
+  - AFNetworking/NSURLConnection (2.2.4):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/NSURLSession (2.2.4):
+    - AFNetworking/NSURLConnection
+  - AFNetworking/Reachability (2.2.4)
+  - AFNetworking/Security (2.2.4)
+  - AFNetworking/Serialization (2.2.4)
+  - AFNetworking/UIKit (2.2.4):
+    - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
+  - ECSlidingViewController (2.0.2)
+  - PNChart (0.3.3):
+    - UICountingLabel (~> 1.0.0)
+  - UICountingLabel (1.0.0)
+
+DEPENDENCIES:
+  - AFNetworking (~> 2.0)
+  - ECSlidingViewController (~> 2.0.2)
+  - PNChart (~> 0.3.3)
+
+SPEC CHECKSUMS:
+  AFNetworking: ab63e259fe91eef4519b371ef0a4955af0e73e64
+  ECSlidingViewController: 6c11fadb10d720c2d48bc577962332bdd4264c9f
+  PNChart: c77c6880b03851f01d7b5523648e0b93cfe51978
+  UICountingLabel: 0a0e9e34bf4690dbd127aaec552d19ed938087a9
+
+COCOAPODS: 0.32.1

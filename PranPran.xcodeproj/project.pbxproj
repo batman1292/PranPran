@@ -1,0 +1,632 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AFB345AD20FD44B6B5214171 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 620ED150DF7341DEAB1BEF6D /* libPods.a */; };
+		BF998CFC192E2FE60082D400 /* PranPranEditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF998CFB192E2FE60082D400 /* PranPranEditProfileViewController.m */; };
+		BF9C906A192DA7910087684D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF9C9069192DA7910087684D /* Foundation.framework */; };
+		BF9C906C192DA7910087684D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF9C906B192DA7910087684D /* CoreGraphics.framework */; };
+		BF9C906E192DA7910087684D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF9C906D192DA7910087684D /* UIKit.framework */; };
+		BF9C9074192DA7910087684D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BF9C9072192DA7910087684D /* InfoPlist.strings */; };
+		BF9C9076192DA7910087684D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BF9C9075192DA7910087684D /* main.m */; };
+		BF9C907A192DA7910087684D /* PranPranAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BF9C9079192DA7910087684D /* PranPranAppDelegate.m */; };
+		BF9C9080192DA7910087684D /* PranPranViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF9C907F192DA7910087684D /* PranPranViewController.m */; };
+		BF9C9082192DA7910087684D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF9C9081192DA7910087684D /* Images.xcassets */; };
+		BF9C9089192DA7910087684D /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF9C9088192DA7910087684D /* XCTest.framework */; };
+		BF9C908A192DA7910087684D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF9C9069192DA7910087684D /* Foundation.framework */; };
+		BF9C908B192DA7910087684D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF9C906D192DA7910087684D /* UIKit.framework */; };
+		BF9C9093192DA7910087684D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BF9C9091192DA7910087684D /* InfoPlist.strings */; };
+		BF9C9095192DA7910087684D /* PranPranTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BF9C9094192DA7910087684D /* PranPranTests.m */; };
+		BF9C90A0192DAB6C0087684D /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BF9C909E192DAB6C0087684D /* Model.xcdatamodeld */; };
+		BF9C90A3192DAD140087684D /* History.m in Sources */ = {isa = PBXBuildFile; fileRef = BF9C90A2192DAD140087684D /* History.m */; };
+		BF9C90AA192DADC90087684D /* CoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = BF9C90A9192DADC90087684D /* CoreData.m */; };
+		BF9C90B0192DB1940087684D /* PranPranAddProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF9C90AF192DB1940087684D /* PranPranAddProfileViewController.m */; };
+		BF9C90B3192DC1F60087684D /* PranPranProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF9C90B2192DC1F60087684D /* PranPranProfileViewController.m */; };
+		BF9C90B6192DC4AE0087684D /* Profile.m in Sources */ = {isa = PBXBuildFile; fileRef = BF9C90B5192DC4AE0087684D /* Profile.m */; };
+		BF9C90B9192DF3870087684D /* PranPranAddWeightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF9C90B8192DF3870087684D /* PranPranAddWeightViewController.m */; };
+		BFA1CD941932F6A300DF0B74 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFA1CD921932F6A300DF0B74 /* Main.storyboard */; };
+		BFA1CD971932F89D00DF0B74 /* TrendTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA1CD961932F89C00DF0B74 /* TrendTableViewCell.m */; };
+		BFA1CD991933068200DF0B74 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFA1CD981933068200DF0B74 /* FacebookSDK.framework */; };
+		BFA1CDE419335A8E00DF0B74 /* PranPranAPIController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA1CDE319335A8E00DF0B74 /* PranPranAPIController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BF9C908C192DA7910087684D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BF9C905E192DA7900087684D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BF9C9065192DA7910087684D;
+			remoteInfo = PranPran;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		620ED150DF7341DEAB1BEF6D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB63D553809D481F8829BA68 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = ../Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		BF998CFA192E2FE60082D400 /* PranPranEditProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PranPranEditProfileViewController.h; sourceTree = "<group>"; };
+		BF998CFB192E2FE60082D400 /* PranPranEditProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PranPranEditProfileViewController.m; sourceTree = "<group>"; };
+		BF9C9066192DA7910087684D /* PranPran.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PranPran.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF9C9069192DA7910087684D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		BF9C906B192DA7910087684D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		BF9C906D192DA7910087684D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		BF9C9071192DA7910087684D /* PranPran-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PranPran-Info.plist"; sourceTree = "<group>"; };
+		BF9C9073192DA7910087684D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BF9C9075192DA7910087684D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		BF9C9077192DA7910087684D /* PranPran-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PranPran-Prefix.pch"; sourceTree = "<group>"; };
+		BF9C9078192DA7910087684D /* PranPranAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PranPranAppDelegate.h; sourceTree = "<group>"; };
+		BF9C9079192DA7910087684D /* PranPranAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PranPranAppDelegate.m; sourceTree = "<group>"; };
+		BF9C907E192DA7910087684D /* PranPranViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PranPranViewController.h; sourceTree = "<group>"; };
+		BF9C907F192DA7910087684D /* PranPranViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PranPranViewController.m; sourceTree = "<group>"; };
+		BF9C9081192DA7910087684D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		BF9C9087192DA7910087684D /* PranPranTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PranPranTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF9C9088192DA7910087684D /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		BF9C9090192DA7910087684D /* PranPranTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PranPranTests-Info.plist"; sourceTree = "<group>"; };
+		BF9C9092192DA7910087684D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BF9C9094192DA7910087684D /* PranPranTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PranPranTests.m; sourceTree = "<group>"; };
+		BF9C909F192DAB6C0087684D /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		BF9C90A1192DAD140087684D /* History.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = History.h; sourceTree = "<group>"; };
+		BF9C90A2192DAD140087684D /* History.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = History.m; sourceTree = "<group>"; };
+		BF9C90A8192DADC90087684D /* CoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreData.h; sourceTree = "<group>"; };
+		BF9C90A9192DADC90087684D /* CoreData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreData.m; sourceTree = "<group>"; };
+		BF9C90AE192DB1940087684D /* PranPranAddProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PranPranAddProfileViewController.h; sourceTree = "<group>"; };
+		BF9C90AF192DB1940087684D /* PranPranAddProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PranPranAddProfileViewController.m; sourceTree = "<group>"; };
+		BF9C90B1192DC1F60087684D /* PranPranProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PranPranProfileViewController.h; sourceTree = "<group>"; };
+		BF9C90B2192DC1F60087684D /* PranPranProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PranPranProfileViewController.m; sourceTree = "<group>"; };
+		BF9C90B4192DC4AE0087684D /* Profile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Profile.h; sourceTree = "<group>"; };
+		BF9C90B5192DC4AE0087684D /* Profile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Profile.m; sourceTree = "<group>"; };
+		BF9C90B7192DF3870087684D /* PranPranAddWeightViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PranPranAddWeightViewController.h; sourceTree = "<group>"; };
+		BF9C90B8192DF3870087684D /* PranPranAddWeightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PranPranAddWeightViewController.m; sourceTree = "<group>"; };
+		BFA1CD931932F6A300DF0B74 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BFA1CD951932F89C00DF0B74 /* TrendTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TrendTableViewCell.h; path = View/TableViewCell/TrendTableViewCell.h; sourceTree = "<group>"; };
+		BFA1CD961932F89C00DF0B74 /* TrendTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TrendTableViewCell.m; path = View/TableViewCell/TrendTableViewCell.m; sourceTree = "<group>"; };
+		BFA1CD981933068200DF0B74 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
+		BFA1CDE219335A8E00DF0B74 /* PranPranAPIController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PranPranAPIController.h; sourceTree = "<group>"; };
+		BFA1CDE319335A8E00DF0B74 /* PranPranAPIController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PranPranAPIController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BF9C9063192DA7910087684D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF9C906C192DA7910087684D /* CoreGraphics.framework in Frameworks */,
+				BFA1CD991933068200DF0B74 /* FacebookSDK.framework in Frameworks */,
+				BF9C906E192DA7910087684D /* UIKit.framework in Frameworks */,
+				BF9C906A192DA7910087684D /* Foundation.framework in Frameworks */,
+				AFB345AD20FD44B6B5214171 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF9C9084192DA7910087684D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF9C9089192DA7910087684D /* XCTest.framework in Frameworks */,
+				BF9C908B192DA7910087684D /* UIKit.framework in Frameworks */,
+				BF9C908A192DA7910087684D /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BF9C905D192DA7900087684D = {
+			isa = PBXGroup;
+			children = (
+				BF9C906F192DA7910087684D /* PranPran */,
+				BF9C908E192DA7910087684D /* PranPranTests */,
+				BF9C9068192DA7910087684D /* Frameworks */,
+				BF9C9067192DA7910087684D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BF9C9067192DA7910087684D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BF9C9066192DA7910087684D /* PranPran.app */,
+				BF9C9087192DA7910087684D /* PranPranTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BF9C9068192DA7910087684D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BFA1CD981933068200DF0B74 /* FacebookSDK.framework */,
+				BF9C9069192DA7910087684D /* Foundation.framework */,
+				BF9C906B192DA7910087684D /* CoreGraphics.framework */,
+				BF9C906D192DA7910087684D /* UIKit.framework */,
+				BF9C9088192DA7910087684D /* XCTest.framework */,
+				620ED150DF7341DEAB1BEF6D /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BF9C906F192DA7910087684D /* PranPran */ = {
+			isa = PBXGroup;
+			children = (
+				BF9C90A7192DAD1C0087684D /* Model */,
+				BFA1CD9A1933073600DF0B74 /* View */,
+				BFA1CD9B1933074900DF0B74 /* Controller */,
+				BF9C9078192DA7910087684D /* PranPranAppDelegate.h */,
+				BF9C9079192DA7910087684D /* PranPranAppDelegate.m */,
+				BFA1CD921932F6A300DF0B74 /* Main.storyboard */,
+				BF9C907E192DA7910087684D /* PranPranViewController.h */,
+				BF9C907F192DA7910087684D /* PranPranViewController.m */,
+				BF9C9081192DA7910087684D /* Images.xcassets */,
+				BF9C9070192DA7910087684D /* Supporting Files */,
+				BFA1CDE219335A8E00DF0B74 /* PranPranAPIController.h */,
+				BFA1CDE319335A8E00DF0B74 /* PranPranAPIController.m */,
+			);
+			path = PranPran;
+			sourceTree = "<group>";
+		};
+		BF9C9070192DA7910087684D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AB63D553809D481F8829BA68 /* Pods.xcconfig */,
+				BF9C9071192DA7910087684D /* PranPran-Info.plist */,
+				BF9C9072192DA7910087684D /* InfoPlist.strings */,
+				BF9C9075192DA7910087684D /* main.m */,
+				BF9C9077192DA7910087684D /* PranPran-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BF9C908E192DA7910087684D /* PranPranTests */ = {
+			isa = PBXGroup;
+			children = (
+				BF9C9094192DA7910087684D /* PranPranTests.m */,
+				BF9C908F192DA7910087684D /* Supporting Files */,
+			);
+			path = PranPranTests;
+			sourceTree = "<group>";
+		};
+		BF9C908F192DA7910087684D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BF9C9090192DA7910087684D /* PranPranTests-Info.plist */,
+				BF9C9091192DA7910087684D /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BF9C90A7192DAD1C0087684D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BFA81B57193465C100F262A7 /* CoreData */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		BFA1CD9A1933073600DF0B74 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BFA1CD951932F89C00DF0B74 /* TrendTableViewCell.h */,
+				BFA1CD961932F89C00DF0B74 /* TrendTableViewCell.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		BFA1CD9B1933074900DF0B74 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BF9C90B1192DC1F60087684D /* PranPranProfileViewController.h */,
+				BF9C90B2192DC1F60087684D /* PranPranProfileViewController.m */,
+				BF9C90AE192DB1940087684D /* PranPranAddProfileViewController.h */,
+				BF9C90AF192DB1940087684D /* PranPranAddProfileViewController.m */,
+				BF9C90B7192DF3870087684D /* PranPranAddWeightViewController.h */,
+				BF9C90B8192DF3870087684D /* PranPranAddWeightViewController.m */,
+				BF998CFA192E2FE60082D400 /* PranPranEditProfileViewController.h */,
+				BF998CFB192E2FE60082D400 /* PranPranEditProfileViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		BFA81B57193465C100F262A7 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				BF9C909E192DAB6C0087684D /* Model.xcdatamodeld */,
+				BF9C90A1192DAD140087684D /* History.h */,
+				BF9C90A2192DAD140087684D /* History.m */,
+				BF9C90B4192DC4AE0087684D /* Profile.h */,
+				BF9C90B5192DC4AE0087684D /* Profile.m */,
+				BF9C90A8192DADC90087684D /* CoreData.h */,
+				BF9C90A9192DADC90087684D /* CoreData.m */,
+			);
+			name = CoreData;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BF9C9065192DA7910087684D /* PranPran */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BF9C9098192DA7910087684D /* Build configuration list for PBXNativeTarget "PranPran" */;
+			buildPhases = (
+				5434881811F44D3A957AD42A /* Check Pods Manifest.lock */,
+				BF9C9062192DA7910087684D /* Sources */,
+				BF9C9063192DA7910087684D /* Frameworks */,
+				BF9C9064192DA7910087684D /* Resources */,
+				6D96F5F65852401D9D2CED5A /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PranPran;
+			productName = PranPran;
+			productReference = BF9C9066192DA7910087684D /* PranPran.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BF9C9086192DA7910087684D /* PranPranTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BF9C909B192DA7910087684D /* Build configuration list for PBXNativeTarget "PranPranTests" */;
+			buildPhases = (
+				BF9C9083192DA7910087684D /* Sources */,
+				BF9C9084192DA7910087684D /* Frameworks */,
+				BF9C9085192DA7910087684D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BF9C908D192DA7910087684D /* PBXTargetDependency */,
+			);
+			name = PranPranTests;
+			productName = PranPranTests;
+			productReference = BF9C9087192DA7910087684D /* PranPranTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BF9C905E192DA7900087684D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = PranPran;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = BVH;
+				TargetAttributes = {
+					BF9C9086192DA7910087684D = {
+						TestTargetID = BF9C9065192DA7910087684D;
+					};
+				};
+			};
+			buildConfigurationList = BF9C9061192DA7900087684D /* Build configuration list for PBXProject "PranPran" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BF9C905D192DA7900087684D;
+			productRefGroup = BF9C9067192DA7910087684D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BF9C9065192DA7910087684D /* PranPran */,
+				BF9C9086192DA7910087684D /* PranPranTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BF9C9064192DA7910087684D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF9C9082192DA7910087684D /* Images.xcassets in Resources */,
+				BF9C9074192DA7910087684D /* InfoPlist.strings in Resources */,
+				BFA1CD941932F6A300DF0B74 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF9C9085192DA7910087684D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF9C9093192DA7910087684D /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5434881811F44D3A957AD42A /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		6D96F5F65852401D9D2CED5A /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BF9C9062192DA7910087684D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BFA1CDE419335A8E00DF0B74 /* PranPranAPIController.m in Sources */,
+				BF9C90B0192DB1940087684D /* PranPranAddProfileViewController.m in Sources */,
+				BF9C907A192DA7910087684D /* PranPranAppDelegate.m in Sources */,
+				BF9C9076192DA7910087684D /* main.m in Sources */,
+				BF998CFC192E2FE60082D400 /* PranPranEditProfileViewController.m in Sources */,
+				BF9C90B6192DC4AE0087684D /* Profile.m in Sources */,
+				BF9C9080192DA7910087684D /* PranPranViewController.m in Sources */,
+				BF9C90A3192DAD140087684D /* History.m in Sources */,
+				BF9C90B3192DC1F60087684D /* PranPranProfileViewController.m in Sources */,
+				BF9C90A0192DAB6C0087684D /* Model.xcdatamodeld in Sources */,
+				BF9C90B9192DF3870087684D /* PranPranAddWeightViewController.m in Sources */,
+				BF9C90AA192DADC90087684D /* CoreData.m in Sources */,
+				BFA1CD971932F89D00DF0B74 /* TrendTableViewCell.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF9C9083192DA7910087684D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF9C9095192DA7910087684D /* PranPranTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BF9C908D192DA7910087684D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BF9C9065192DA7910087684D /* PranPran */;
+			targetProxy = BF9C908C192DA7910087684D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		BF9C9072192DA7910087684D /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BF9C9073192DA7910087684D /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		BF9C9091192DA7910087684D /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BF9C9092192DA7910087684D /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		BFA1CD921932F6A300DF0B74 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BFA1CD931932F6A300DF0B74 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BF9C9096192DA7910087684D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		BF9C9097192DA7910087684D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BF9C9099192DA7910087684D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AB63D553809D481F8829BA68 /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/BVH/Documents/FacebookSDK,
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PranPran/PranPran-Prefix.pch";
+				INFOPLIST_FILE = "PranPran/PranPran-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		BF9C909A192DA7910087684D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AB63D553809D481F8829BA68 /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/BVH/Documents/FacebookSDK,
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PranPran/PranPran-Prefix.pch";
+				INFOPLIST_FILE = "PranPran/PranPran-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		BF9C909C192DA7910087684D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/PranPran.app/PranPran";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PranPran/PranPran-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "PranPranTests/PranPranTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		BF9C909D192DA7910087684D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/PranPran.app/PranPran";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PranPran/PranPran-Prefix.pch";
+				INFOPLIST_FILE = "PranPranTests/PranPranTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BF9C9061192DA7900087684D /* Build configuration list for PBXProject "PranPran" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF9C9096192DA7910087684D /* Debug */,
+				BF9C9097192DA7910087684D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BF9C9098192DA7910087684D /* Build configuration list for PBXNativeTarget "PranPran" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF9C9099192DA7910087684D /* Debug */,
+				BF9C909A192DA7910087684D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BF9C909B192DA7910087684D /* Build configuration list for PBXNativeTarget "PranPranTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF9C909C192DA7910087684D /* Debug */,
+				BF9C909D192DA7910087684D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		BF9C909E192DAB6C0087684D /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				BF9C909F192DAB6C0087684D /* Model.xcdatamodel */,
+			);
+			currentVersion = BF9C909F192DAB6C0087684D /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = BF9C905E192DA7900087684D /* Project object */;
+}
