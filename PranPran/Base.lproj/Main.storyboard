@@ -17,7 +17,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AVG-vd-i6c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-831" y="882"/>
+            <point key="canvasLocation" x="-663" y="898"/>
         </scene>
         <!--Pran Pran View Controller-->
         <scene sceneID="ufC-wZ-h7g">
@@ -144,7 +144,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1TD-R1-L2R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="435" y="518"/>
+            <point key="canvasLocation" x="-663" y="1613"/>
         </scene>
         <!--Pran Pran Profile View Controller-->
         <scene sceneID="0aJ-6I-k6S">
@@ -224,11 +224,6 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="HHV-hp-REb">
-                        <barButtonItem key="leftBarButtonItem" title="EditProfile" id="f6F-P0-hPK">
-                            <connections>
-                                <segue destination="xZj-ew-7Za" kind="push" id="ahn-ua-jU6"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Zqy-u6-YiI">
                             <connections>
                                 <action selector="addWeightButton:" destination="Irz-2e-j9K" id="JFT-YT-aZy"/>
@@ -241,7 +236,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gWu-0J-shD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-217" y="870"/>
+            <point key="canvasLocation" x="-225" y="905"/>
         </scene>
         <!--Pran Pran Add Weight View Controller-->
         <scene sceneID="8D8-rv-ry8">
@@ -283,7 +278,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jft-YF-ZAX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="435" y="1256"/>
+            <point key="canvasLocation" x="259" y="898"/>
         </scene>
         <!--Pran Pran Add Profile View Controller-->
         <scene sceneID="Xgs-8C-gfE">

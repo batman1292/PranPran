@@ -136,7 +136,7 @@
                     if(self.count.intValue > 10){
                         self.count = [NSNumber numberWithInt:0];
                         [self.center stopScan];
-                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Really reset?" message:@"Do you really want to reset this game?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
+                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"%.1f",self.resultBefore.floatValue/10] message:@"That is your Weight?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:nil];
                         // optional - add more buttons:
                         [alert addButtonWithTitle:@"Yes"];
                         [alert show];
@@ -159,12 +159,28 @@
 
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
     if (buttonIndex == 1) {
-        [self.coreData setWeightFromBluetooth:self.weightData];
-        self.weightData = [self.coreData getLastHistoryWeight];
-        [self.tableView reloadData];
-        [self.center scanForPeripheralsWithServices:nil options:@{ CBCentralManagerScanOptionAllowDuplicatesKey : @YES }];
+        [PranPranAPIController setWeight:self.facebookID Weight:[NSNumber numberWithFloat:[self.weightData floatValue]] Height:[NSNumber numberWithFloat:[self.profileData[@"height"] floatValue]] Completed:^(id object) {
+            
+        } Failure:^(NSError *error) {
+            NSLog(@"error %@", error);
+        }];
+        [PranPranAPIController getDataByFBid:self.facebookID Completed:^(id object) {
+            self.profileData = @{@"name":[object objectForKey:@"data"][0][@"name"],
+                                 @"height":[object objectForKey:@"data"][0][@"height"],
+                                 @"bmi":[object objectForKey:@"data"][1][@"bmi"],
+                                 @"weight":[object objectForKey:@"data"][1][@"weight"],
+                                 @"beWeight":[object objectForKey:@"data"][1][@"beforeWeight"],
+                                 @"beBMI":[object objectForKey:@"data"][1][@"beforeBMI"]
+                                 };
+            self.weightData = [object objectForKey:@"data"][1][@"weight"];
+            NSLog(@"profiledata : %@", self.profileData);
+            [self.tableView reloadData];
+            [self.center scanForPeripheralsWithServices:nil options:@{ CBCentralManagerScanOptionAllowDuplicatesKey : @YES }];
+        } Failure:^(NSError *error) {
+            NSLog(@"error : %@", error);
+        }];
     }else{
-        self.weightData = [self.coreData getLastHistoryWeight];
+        self.weightData = self.profileData[@"weight"];
         [self.tableView reloadData];
         [self.center scanForPeripheralsWithServices:nil options:@{ CBCentralManagerScanOptionAllowDuplicatesKey : @YES }];
     }
