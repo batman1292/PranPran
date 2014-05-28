@@ -9,6 +9,12 @@
 #import "PranPranProfileViewController.h"
 #import "CoreData.h"
 #import "TrendTableViewCell.h"
+#import "PranPranAPIController.h"
+
+#import "PranPranAddWeightViewController.h"
+
+#import "MEDynamicTransition.h"
+#import "UIViewController+ECSlidingViewController.h"
 
 @interface PranPranProfileViewController ()
 @property (nonatomic, strong) CoreData *coreData;
@@ -18,6 +24,7 @@
 @property (nonatomic, strong) NSNumber *count;
 @property (nonatomic, strong) NSNumber *weightData;
 @property (nonatomic, strong) NSTimer *timer;
+@property (nonatomic, strong) UIPanGestureRecognizer *dynamicTransitionPanGesture;
 @end
 
 @implementation PranPranProfileViewController
@@ -31,6 +38,22 @@
     return self;
 }
  */
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    if ([(NSObject *)self.slidingViewController.delegate isKindOfClass:[MEDynamicTransition class]]) {
+        MEDynamicTransition *dynamicTransition = (MEDynamicTransition *)self.slidingViewController.delegate;
+        if (!self.dynamicTransitionPanGesture) {
+            self.dynamicTransitionPanGesture = [[UIPanGestureRecognizer alloc] initWithTarget:dynamicTransition action:@selector(handlePanGesture:)];
+        }
+        
+        [self.navigationController.view removeGestureRecognizer:self.slidingViewController.panGesture];
+        [self.navigationController.view addGestureRecognizer:self.dynamicTransitionPanGesture];
+    } else {
+        [self.navigationController.view removeGestureRecognizer:self.dynamicTransitionPanGesture];
+        [self.navigationController.view addGestureRecognizer:self.slidingViewController.panGesture];
+    }
+}
 
 - (void)viewDidLoad
 {
@@ -45,6 +68,22 @@
     self.center = [[CBCentralManager alloc] initWithDelegate:self queue:nil];
     self.resultBefore = [NSNumber numberWithInt:0];
     self.count = [NSNumber numberWithInt:0];
+    
+    [PranPranAPIController getDataByFBid:self.facebookID Completed:^(id object) {
+        self.profileData = @{@"name":[object objectForKey:@"data"][0][@"name"],
+                             @"height":[object objectForKey:@"data"][0][@"height"],
+                             @"bmi":[object objectForKey:@"data"][1][@"bmi"],
+                             @"weight":[object objectForKey:@"data"][1][@"weight"],
+                             @"beWeight":[object objectForKey:@"data"][1][@"beforeWeight"],
+                             @"beBMI":[object objectForKey:@"data"][1][@"beforeBMI"]
+                                                     };
+        self.weightData = [object objectForKey:@"data"][1][@"weight"];
+        NSLog(@"profiledata : %@", self.profileData);
+        [self.tableView reloadData];
+    } Failure:^(NSError *error) {
+        NSLog(@"error : %@", error);
+    }];
+    
 }
 
 //over write bluetooth method
@@ -152,18 +191,27 @@
             cell.textLabel.text = [NSString stringWithFormat:@"Weight : %.1f Kg", self.weightData.floatValue];
             break;
         case 1:
-            cell.textLabel.text = [NSString stringWithFormat:@"BMI : %.2f", [self.coreData getLastHistoryBMI].floatValue];
-            break;
+            cell.textLabel.text = [NSString stringWithFormat:@"BMI : %.2f", [self.profileData[@"bmi"] floatValue]];
+            break;	
         case 2:
 //            cell = cellTrend;
-            cellTrend.trendWeight.text = [self.coreData getTerndWeight];
-            cellTrend.trendBMI.text = [self.coreData getTerndBMI];
+            if ([self.profileData[@"beWeight"] floatValue] != 0.0){
+                float changeWeight = ([self.profileData[@"weight"] floatValue] - [self.profileData[@"beWeight"] floatValue]);
+                float perChangeWeight = changeWeight*100/[self.profileData[@"weight"] floatValue];
+                cellTrend.trendWeight.text = [NSString stringWithFormat:@"change %.1f , perChange %.2f ", changeWeight, perChangeWeight];
+                float changeBMI = ([self.profileData[@"bmi"] floatValue] - [self.profileData[@"beBMI"] floatValue]);
+                float perChangeBMI = changeWeight*100/[self.profileData[@"bmi"] floatValue];
+                cellTrend.trendBMI.text = [NSString stringWithFormat:@"change %.1f , perChange %.2f ", changeBMI, perChangeBMI];
+            }else{
+                cellTrend.trendWeight.text = @"Trend Weight : No enough data";
+                cellTrend.trendBMI.text = @"Trend BMI : No enough data";
+            }
             cell = cellTrend;
             break;
         case 3:
             cell = [tableView dequeueReusableCellWithIdentifier:@"cellGoal"];
             if ([[self.profileData objectForKey:@"goal"] intValue] == 0) {
-                cell.textLabel.text = @"Goal : คุณไม่ได้ตั้งไว้";
+                cell.textLabel.text = @"Goal : not set yet";
             }else{
                 cell.textLabel.text = [NSString stringWithFormat:@"Goal : %@ Kg", [self.profileData objectForKey:@"goal"]];
             }
@@ -190,8 +238,10 @@
 
 - (IBAction)addWeightButton:(id)sender{
     [self.center stopScan];
-    UIViewController * addProfile = [self.storyboard instantiateViewControllerWithIdentifier:@"PranPranAddWeightView"];
-    [self.navigationController pushViewController:addProfile animated:YES];
+    PranPranAddWeightViewController * addWeight = [self.storyboard instantiateViewControllerWithIdentifier:@"PranPranAddWeightView"];
+    addWeight.facebookID = self.facebookID;
+    addWeight.height = self.profileData[@"height"];
+    [self.navigationController pushViewController:addWeight animated:YES];
 }
 /*
 #pragma mark - Navigation

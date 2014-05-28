@@ -22,16 +22,6 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-//    self.checkCoreData = [CoreData sharedCoredata];
-//    [self.checkCoreData initCoreData];
-//    //check data in coreData
-//    if ([self.checkCoreData checkProfileData]) {
-//        UIViewController * addProfile = [self.storyboard instantiateViewControllerWithIdentifier:@"PranPranProfileView"];
-//        [self.navigationController pushViewController:addProfile animated:YES];
-//    }else{
-//        UIViewController * addProfile = [self.storyboard instantiateViewControllerWithIdentifier:@"PranPranAddProfileView"];
-//        [self.navigationController pushViewController:addProfile animated:YES];
-//    }
     [self.navigationItem setTitle:@"Welcome 2 PranPran"];
     //set up facebook login button
     FBLoginView *loginView = [[FBLoginView alloc] initWithReadPermissions:

@@ -33,6 +33,12 @@
 		BFA1CD971932F89D00DF0B74 /* TrendTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA1CD961932F89C00DF0B74 /* TrendTableViewCell.m */; };
 		BFA1CD991933068200DF0B74 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFA1CD981933068200DF0B74 /* FacebookSDK.framework */; };
 		BFA1CDE419335A8E00DF0B74 /* PranPranAPIController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA1CDE319335A8E00DF0B74 /* PranPranAPIController.m */; };
+		BFA2A6711935979300596712 /* MEDynamicTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA2A6661935979300596712 /* MEDynamicTransition.m */; };
+		BFA2A6721935979300596712 /* MEFoldAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA2A6681935979300596712 /* MEFoldAnimationController.m */; };
+		BFA2A6731935979300596712 /* MEMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA2A66A1935979300596712 /* MEMenuViewController.m */; };
+		BFA2A6741935979300596712 /* METransitions.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA2A66C1935979300596712 /* METransitions.m */; };
+		BFA2A6751935979300596712 /* METransitionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA2A66E1935979300596712 /* METransitionsViewController.m */; };
+		BFA2A6761935979300596712 /* MEZoomAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFA2A6701935979300596712 /* MEZoomAnimationController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +93,18 @@
 		BFA1CD981933068200DF0B74 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
 		BFA1CDE219335A8E00DF0B74 /* PranPranAPIController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PranPranAPIController.h; sourceTree = "<group>"; };
 		BFA1CDE319335A8E00DF0B74 /* PranPranAPIController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PranPranAPIController.m; sourceTree = "<group>"; };
+		BFA2A6651935979300596712 /* MEDynamicTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MEDynamicTransition.h; path = "../../../Downloads/ECSlidingViewController-master/Examples/TransitionFun/TransitionFun/MEDynamicTransition.h"; sourceTree = "<group>"; };
+		BFA2A6661935979300596712 /* MEDynamicTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MEDynamicTransition.m; path = "../../../Downloads/ECSlidingViewController-master/Examples/TransitionFun/TransitionFun/MEDynamicTransition.m"; sourceTree = "<group>"; };
+		BFA2A6671935979300596712 /* MEFoldAnimationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MEFoldAnimationController.h; path = "../../../Downloads/ECSlidingViewController-master/Examples/TransitionFun/TransitionFun/MEFoldAnimationController.h"; sourceTree = "<group>"; };
+		BFA2A6681935979300596712 /* MEFoldAnimationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MEFoldAnimationController.m; path = "../../../Downloads/ECSlidingViewController-master/Examples/TransitionFun/TransitionFun/MEFoldAnimationController.m"; sourceTree = "<group>"; };
+		BFA2A6691935979300596712 /* MEMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MEMenuViewController.h; path = "../../../Downloads/ECSlidingViewController-master/Examples/TransitionFun/TransitionFun/MEMenuViewController.h"; sourceTree = "<group>"; };
+		BFA2A66A1935979300596712 /* MEMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MEMenuViewController.m; path = "../../../Downloads/ECSlidingViewController-master/Examples/TransitionFun/TransitionFun/MEMenuViewController.m"; sourceTree = "<group>"; };
+		BFA2A66B1935979300596712 /* METransitions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = METransitions.h; path = "../../../Downloads/ECSlidingViewController-master/Examples/TransitionFun/TransitionFun/METransitions.h"; sourceTree = "<group>"; };
+		BFA2A66C1935979300596712 /* METransitions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = METransitions.m; path = "../../../Downloads/ECSlidingViewController-master/Examples/TransitionFun/TransitionFun/METransitions.m"; sourceTree = "<group>"; };
+		BFA2A66D1935979300596712 /* METransitionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = METransitionsViewController.h; path = "../../../Downloads/ECSlidingViewController-master/Examples/TransitionFun/TransitionFun/METransitionsViewController.h"; sourceTree = "<group>"; };
+		BFA2A66E1935979300596712 /* METransitionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = METransitionsViewController.m; path = "../../../Downloads/ECSlidingViewController-master/Examples/TransitionFun/TransitionFun/METransitionsViewController.m"; sourceTree = "<group>"; };
+		BFA2A66F1935979300596712 /* MEZoomAnimationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MEZoomAnimationController.h; path = "../../../Downloads/ECSlidingViewController-master/Examples/TransitionFun/TransitionFun/MEZoomAnimationController.h"; sourceTree = "<group>"; };
+		BFA2A6701935979300596712 /* MEZoomAnimationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MEZoomAnimationController.m; path = "../../../Downloads/ECSlidingViewController-master/Examples/TransitionFun/TransitionFun/MEZoomAnimationController.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +168,7 @@
 		BF9C906F192DA7910087684D /* PranPran */ = {
 			isa = PBXGroup;
 			children = (
+				BFA2A6771935979D00596712 /* ECS */,
 				BF9C90A7192DAD1C0087684D /* Model */,
 				BFA1CD9A1933073600DF0B74 /* View */,
 				BFA1CD9B1933074900DF0B74 /* Controller */,
@@ -226,6 +245,25 @@
 				BF998CFB192E2FE60082D400 /* PranPranEditProfileViewController.m */,
 			);
 			name = Controller;
+			sourceTree = "<group>";
+		};
+		BFA2A6771935979D00596712 /* ECS */ = {
+			isa = PBXGroup;
+			children = (
+				BFA2A6691935979300596712 /* MEMenuViewController.h */,
+				BFA2A66A1935979300596712 /* MEMenuViewController.m */,
+				BFA2A66B1935979300596712 /* METransitions.h */,
+				BFA2A66C1935979300596712 /* METransitions.m */,
+				BFA2A66D1935979300596712 /* METransitionsViewController.h */,
+				BFA2A66E1935979300596712 /* METransitionsViewController.m */,
+				BFA2A66F1935979300596712 /* MEZoomAnimationController.h */,
+				BFA2A6701935979300596712 /* MEZoomAnimationController.m */,
+				BFA2A6651935979300596712 /* MEDynamicTransition.h */,
+				BFA2A6661935979300596712 /* MEDynamicTransition.m */,
+				BFA2A6671935979300596712 /* MEFoldAnimationController.h */,
+				BFA2A6681935979300596712 /* MEFoldAnimationController.m */,
+			);
+			name = ECS;
 			sourceTree = "<group>";
 		};
 		BFA81B57193465C100F262A7 /* CoreData */ = {
@@ -376,18 +414,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				BFA1CDE419335A8E00DF0B74 /* PranPranAPIController.m in Sources */,
+				BFA2A6721935979300596712 /* MEFoldAnimationController.m in Sources */,
+				BFA2A6741935979300596712 /* METransitions.m in Sources */,
 				BF9C90B0192DB1940087684D /* PranPranAddProfileViewController.m in Sources */,
 				BF9C907A192DA7910087684D /* PranPranAppDelegate.m in Sources */,
 				BF9C9076192DA7910087684D /* main.m in Sources */,
+				BFA2A6761935979300596712 /* MEZoomAnimationController.m in Sources */,
 				BF998CFC192E2FE60082D400 /* PranPranEditProfileViewController.m in Sources */,
 				BF9C90B6192DC4AE0087684D /* Profile.m in Sources */,
+				BFA2A6731935979300596712 /* MEMenuViewController.m in Sources */,
 				BF9C9080192DA7910087684D /* PranPranViewController.m in Sources */,
 				BF9C90A3192DAD140087684D /* History.m in Sources */,
 				BF9C90B3192DC1F60087684D /* PranPranProfileViewController.m in Sources */,
 				BF9C90A0192DAB6C0087684D /* Model.xcdatamodeld in Sources */,
 				BF9C90B9192DF3870087684D /* PranPranAddWeightViewController.m in Sources */,
 				BF9C90AA192DADC90087684D /* CoreData.m in Sources */,
+				BFA2A6711935979300596712 /* MEDynamicTransition.m in Sources */,
 				BFA1CD971932F89D00DF0B74 /* TrendTableViewCell.m in Sources */,
+				BFA2A6751935979300596712 /* METransitionsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,8 +10,10 @@
 
 @interface PranPranAddWeightViewController : UIViewController <UITextFieldDelegate>
 
+@property (strong, nonatomic) NSString *facebookID;
+@property (strong, nonatomic) NSNumber *height;
+
 @property (weak, nonatomic) IBOutlet UITextField *dataWeight;
-@property (weak, nonatomic) IBOutlet UIDatePicker *dataDate;
 
 - (IBAction)saveWeightButton:(id)sender;
 @end

@@ -8,6 +8,8 @@
 
 #import "PranPranAddWeightViewController.h"
 #import "CoreData.h"
+#import "PranPranAPIController.h"
+#import "PranPranProfileViewController.h"
 
 @interface PranPranAddWeightViewController ()
 @property (nonatomic, strong) CoreData *coreData;
@@ -28,8 +30,9 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    NSLog(@"height :%@", self.height);
     //setup Singleton
-    self.coreData = [CoreData sharedCoredata];
+    //self.coreData = [CoreData sharedCoredata];
     UITapGestureRecognizer *tapGestrue = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(handleTap)];
     [self.view addGestureRecognizer:tapGestrue];
     self.dataWeight.delegate = self;
@@ -54,11 +57,15 @@
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"กรุณากรอกข้อมูลให้ครบทุกช่อง" delegate:self cancelButtonTitle:@"Back" otherButtonTitles:nil];
         [alert show];
     }else{
-        [self.coreData setWeight:[NSNumber numberWithFloat:[self.dataWeight.text floatValue]]
-                                    ];
+        [PranPranAPIController setWeight:self.facebookID Weight:[NSNumber numberWithFloat:[self.dataWeight.text floatValue]] Height:[NSNumber numberWithFloat:[self.height floatValue]] Completed:^(id object) {
+            
+        } Failure:^(NSError *error) {
+            NSLog(@"error %@", error);
+        }];
+        PranPranProfileViewController * viewProfile = [self.storyboard instantiateViewControllerWithIdentifier:@"PranPranProfileView"];
+        viewProfile.facebookID = self.facebookID;
+        [self.navigationController pushViewController:viewProfile animated:YES];
     }
-    UIViewController * addProfile = [self.storyboard instantiateViewControllerWithIdentifier:@"PranPranProfileView"];
-    [self.navigationController pushViewController:addProfile animated:YES];
 }
 
 /*
