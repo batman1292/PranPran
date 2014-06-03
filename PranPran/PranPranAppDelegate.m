@@ -14,7 +14,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    [FBLoginView class];
+    //[FBLoginView class];
+    
     // Handle launching from a notification
     UILocalNotification *locationNotification = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
     if (locationNotification) {
@@ -34,7 +35,7 @@
 {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-   // UIApplicationState state = [application applicationState];
+//    UIApplicationState state = [application applicationState];
 //    if (state == UIApplicationStateActive) {
 //        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Reminder"
 //                                                        message:NSNotification.alertBody

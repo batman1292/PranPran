@@ -65,17 +65,20 @@
 // This method will be called when the user information has been fetched
 - (void)loginViewFetchedUserInfo:(FBLoginView *)loginView
                             user:(id<FBGraphUser>)user {
+    NSLog(@"name : %@", user.objectID);
+    NSLog(@"namew : %@", user.name);
     self.appDelegate.facebookID = user.objectID;
+    self.facebookID = user.objectID;
     self.name = user.name;
 }
 
 // Implement the loginViewShowingLoggedInUser: delegate method to modify your app's UI for a logged-in user experience
 - (void)loginViewShowingLoggedInUser:(FBLoginView *)loginView {
-    [PranPranAPIController checkUserByFBid:self.appDelegate.facebookID Completed:^(id object) {
+    [PranPranAPIController checkUserByFBid:self.facebookID Completed:^(id object) {
 //        NSLog(@"data : %@", [object objectForKey:@"status"]);
-        if (object == nil){
-            [self viewDidLoad];
-        }else{
+//        if ([object objectForKey:@"status"] == nil){
+//            [self viewDidLoad];
+//        }else{
             if([[object objectForKey:@"status"] isEqualToString:@"found"]){
                 UIViewController * viewProfile = [self.storyboard instantiateViewControllerWithIdentifier:@"PranPranProfileView"];
                 [self.navigationController pushViewController:viewProfile animated:YES];
@@ -84,7 +87,7 @@
                 addProfile.name = self.name;
                 [self.navigationController pushViewController:addProfile animated:YES];
             }
-        }
+//        }
         [self reloadInputViews];
     } Failure:^(NSError *error) {
         NSLog(@"error : %@", error);

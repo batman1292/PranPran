@@ -20,7 +20,7 @@
     [manager GET:@"http://s2weight.azurewebsites.net/api/CheckDataByFBid.php" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSError *localError = nil;
         NSDictionary *parsedObject = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:&localError];
-//        NSLog(@"data : %@", parsedObject);
+        NSLog(@"data : %@", parsedObject);
         completed(parsedObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         failure(error);
