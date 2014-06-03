@@ -7,15 +7,21 @@
 //
 
 #import "PranPranAddWeightViewController.h"
-#import "CoreData.h"
 #import "PranPranAPIController.h"
-#import "PranPranProfileViewController.h"
+#import "PranPranAppDelegate.h"
 
 @interface PranPranAddWeightViewController ()
-@property (nonatomic, strong) CoreData *coreData;
+@property (nonatomic, weak) PranPranAppDelegate *appDelegate;
 @end
 
 @implementation PranPranAddWeightViewController
+
+-(PranPranAppDelegate *)appDelegate {
+    if (!_appDelegate) {
+        _appDelegate = [[UIApplication sharedApplication] delegate];
+    }
+    return _appDelegate;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -57,13 +63,12 @@
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"กรุณากรอกข้อมูลให้ครบทุกช่อง" delegate:self cancelButtonTitle:@"Back" otherButtonTitles:nil];
         [alert show];
     }else{
-        [PranPranAPIController setWeight:self.facebookID Weight:[NSNumber numberWithFloat:[self.dataWeight.text floatValue]] Height:[NSNumber numberWithFloat:[self.height floatValue]] Completed:^(id object) {
+        [PranPranAPIController setWeight:self.appDelegate.facebookID Weight:[NSNumber numberWithFloat:[self.dataWeight.text floatValue]] Height:[NSNumber numberWithFloat:[self.height floatValue]] Completed:^(id object) {
             
         } Failure:^(NSError *error) {
             NSLog(@"error %@", error);
         }];
-        PranPranProfileViewController * viewProfile = [self.storyboard instantiateViewControllerWithIdentifier:@"PranPranProfileView"];
-        viewProfile.facebookID = self.facebookID;
+        UIViewController * viewProfile = [self.storyboard instantiateViewControllerWithIdentifier:@"PranPranProfileView"];
         [self.navigationController pushViewController:viewProfile animated:YES];
     }
 }

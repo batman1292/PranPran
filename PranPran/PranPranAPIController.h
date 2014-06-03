@@ -21,6 +21,8 @@ typedef void (^FailureHandle)(NSError *error);
 
 + (void)getDataByFBid:(NSString*)fbid Completed:(CompleteHandle)completed Failure:(FailureHandle)failure;
 
++ (void)getWeightDataByFBid:(NSString*)fbid Completed:(CompleteHandle)completed Failure:(FailureHandle)failure;
+
 + (void)setWeight:(NSString *)fbid Weight:(NSNumber *)weight Height:(NSNumber *)height Completed:(CompleteHandle)completed Failure:(FailureHandle)failure;
 
 @end

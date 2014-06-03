@@ -7,7 +7,7 @@
         <!--Navigation Controller-->
         <scene sceneID="oTY-9e-9IA">
             <objects>
-                <navigationController definesPresentationContext="YES" id="HS0-V5-zwH" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="PranPranMainNavigation" definesPresentationContext="YES" id="HS0-V5-zwH" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="p55-4q-1vc">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -17,12 +17,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AVG-vd-i6c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-663" y="898"/>
+            <point key="canvasLocation" x="-1206" y="898"/>
         </scene>
         <!--Pran Pran View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="PranPranViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PranPranView" id="vXZ-lx-hvc" customClass="PranPranViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -37,6 +37,33 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-663" y="186"/>
+        </scene>
+        <!--Pran Pran Add Profile View Controller-->
+        <scene sceneID="Z8K-FX-KwW">
+            <objects>
+                <viewController storyboardIdentifier="_PranPranAddProfileView" id="S5f-Kd-OV2" customClass="PranPranAddProfileViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7KC-82-jT4"/>
+                        <viewControllerLayoutGuide type="bottom" id="uYx-AE-DL6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="YrO-Xc-wxj">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vJ5-e8-eXF">
+                                <rect key="frame" x="0.0" y="20" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="scrollView" destination="vJ5-e8-eXF" id="Sbz-A2-r71"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CCo-vs-ZeG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-199" y="186"/>
         </scene>
         <!--Pran Pran Edit Profile View Controller-->
         <scene sceneID="TiI-Ak-MXd">
@@ -144,7 +171,47 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1TD-R1-L2R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-663" y="1613"/>
+            <point key="canvasLocation" x="-1206" y="1633"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="HeN-ew-CLf">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="QCw-Jj-BF0" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="CIo-L7-ZaD">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="tBB-Td-p9m" kind="relationship" relationship="rootViewController" id="IaS-Ad-lUM"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qqg-vq-3oj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1206" y="2496"/>
+        </scene>
+        <!--Sliding View Controller-->
+        <scene sceneID="Sw5-oe-KFE">
+            <objects>
+                <viewController id="tBB-Td-p9m" customClass="ECSlidingViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6RT-aw-ipS"/>
+                        <viewControllerLayoutGuide type="bottom" id="w55-qP-3hl"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="muU-YR-qdc">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Wrl-AS-JoC">
+                        <barButtonItem key="leftBarButtonItem" title="Item" id="fKS-Cz-dJt"/>
+                    </navigationItem>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="menu" value="YES"/>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="top" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Tf-bF-XSo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-787" y="2496"/>
         </scene>
         <!--Pran Pran Profile View Controller-->
         <scene sceneID="0aJ-6I-k6S">
@@ -224,7 +291,14 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="HHV-hp-REb">
+                        <barButtonItem key="leftBarButtonItem" title="Graph" id="AlC-iH-jet">
+                            <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <connections>
+                                <action selector="viewGrahpButton:" destination="Irz-2e-j9K" id="MgP-TG-EgP"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Zqy-u6-YiI">
+                            <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                             <connections>
                                 <action selector="addWeightButton:" destination="Irz-2e-j9K" id="JFT-YT-aZy"/>
                             </connections>
@@ -236,7 +310,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gWu-0J-shD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-225" y="905"/>
+            <point key="canvasLocation" x="-663" y="898"/>
         </scene>
         <!--Pran Pran Add Weight View Controller-->
         <scene sceneID="8D8-rv-ry8">
@@ -278,7 +352,33 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jft-YF-ZAX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="259" y="898"/>
+            <point key="canvasLocation" x="-199" y="898"/>
+        </scene>
+        <!--Pran Pran Graph Profle View Controller-->
+        <scene sceneID="XpQ-1I-Nxt">
+            <objects>
+                <viewController storyboardIdentifier="PranPranGraphProfleView" id="j98-Bv-xGT" customClass="PranPranGraphProfleViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="NXh-OI-sjM"/>
+                        <viewControllerLayoutGuide type="bottom" id="Tdl-j7-eQZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="20D-9H-wt4">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="srh-xl-cRH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1758" y="1633"/>
+        </scene>
+        <!--Page View Controller-->
+        <scene sceneID="Lk0-k1-ofg">
+            <objects>
+                <pageViewController storyboardIdentifier="PranPranAddProfilePageView" autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="ZhM-rq-0Ut" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eWy-FJ-yhS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-199" y="-531"/>
         </scene>
         <!--Pran Pran Add Profile View Controller-->
         <scene sceneID="Xgs-8C-gfE">
@@ -384,7 +484,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ETb-nF-vnn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-663" y="-479"/>
+            <point key="canvasLocation" x="-663" y="-531"/>
         </scene>
         <!--Menu View Controller-->
         <scene sceneID="7vt-jA-vAi">
@@ -464,7 +564,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sfP-Mo-z7v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1895" y="1613"/>
+            <point key="canvasLocation" x="-1758" y="898"/>
         </scene>
         <!--Sliding View Controller-->
         <scene sceneID="YWv-8B-OtV">
@@ -481,17 +581,17 @@
                     </view>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="string" keyPath="underLeftViewControllerStoryboardId" value="MenuViewController"/>
-                        <userDefinedRuntimeAttribute type="string" keyPath="topViewControllerStoryboardId" value="METransitionsNavigationController"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="topViewControllerStoryboardId" value="PranPranNavigationcontroller"/>
                     </userDefinedRuntimeAttributes>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hdZ-od-Yb2" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1895" y="905"/>
+            <point key="canvasLocation" x="-1758" y="186"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="qel-95-JSg">
             <objects>
-                <navigationController storyboardIdentifier="METransitionsNavigationController" definesPresentationContext="YES" id="54G-il-PcJ" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="PranPranNavigationcontroller" definesPresentationContext="YES" id="54G-il-PcJ" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="KCe-TU-lwo">
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.2421875" green="0.41135378649999998" blue="0.74942974449999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -507,7 +607,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m59-pZ-TvB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1299" y="154"/>
+            <point key="canvasLocation" x="-1206" y="186"/>
         </scene>
     </scenes>
     <resources>

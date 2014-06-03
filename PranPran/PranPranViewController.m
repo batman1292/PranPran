@@ -6,23 +6,45 @@
 //  Copyright (c) 2014 BVH. All rights reserved.
 //
 
+#import "PranPranAppDelegate.h"
 #import "PranPranViewController.h"
 #import "PranPranAPIController.h"
-#import "PranPranProfileViewController.h"
 #import "PranPranAddProfileViewController.h"
 
 @interface PranPranViewController ()
 @property (nonatomic, strong) NSString *facebookID;
 @property (nonatomic, strong) NSString *name;
+@property (nonatomic, weak) PranPranAppDelegate *appDelegate;
+
 @end
 
 @implementation PranPranViewController
 
+-(PranPranAppDelegate *)appDelegate {
+    if (!_appDelegate) {
+        _appDelegate = [[UIApplication sharedApplication] delegate];
+    }
+    return _appDelegate;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    UILocalNotification* localNotification = [[UILocalNotification alloc] init];
+    NSDateFormatter * convertDateToLocal =[[NSDateFormatter alloc]init];
+    [convertDateToLocal setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    [convertDateToLocal setTimeZone:[NSTimeZone localTimeZone]];
+    [convertDateToLocal setCalendar:[[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar]];
+    NSDate *notificationDate = [convertDateToLocal dateFromString:@"2014-06-03 19:10:20"];
+    localNotification.fireDate = notificationDate;
+    localNotification.alertBody = @"Open App Now";
+    localNotification.timeZone = [NSTimeZone defaultTimeZone];
+    [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+    
 	// Do any additional setup after loading the view, typically from a nib.
     [self.navigationItem setTitle:@"Welcome 2 PranPran"];
+    [self.navigationItem setHidesBackButton:YES animated:NO];
     //set up facebook login button
     FBLoginView *loginView = [[FBLoginView alloc] initWithReadPermissions:
                               @[@"public_profile", @"email", @"user_friends"]];
@@ -43,24 +65,25 @@
 // This method will be called when the user information has been fetched
 - (void)loginViewFetchedUserInfo:(FBLoginView *)loginView
                             user:(id<FBGraphUser>)user {
-    self.facebookID = user.objectID;
+    self.appDelegate.facebookID = user.objectID;
     self.name = user.name;
 }
 
 // Implement the loginViewShowingLoggedInUser: delegate method to modify your app's UI for a logged-in user experience
 - (void)loginViewShowingLoggedInUser:(FBLoginView *)loginView {
-    [PranPranAPIController checkUserByFBid:self.facebookID Completed:^(id object) {
-        
-        //        NSLog(@"data : %@", [object objectForKey:@"status"]);
-        if([[object objectForKey:@"status"] isEqualToString:@"found"]){
-            PranPranProfileViewController * viewProfile = [self.storyboard instantiateViewControllerWithIdentifier:@"PranPranProfileView"];
-            viewProfile.facebookID = self.facebookID;
-            [self.navigationController pushViewController:viewProfile animated:YES];
+    [PranPranAPIController checkUserByFBid:self.appDelegate.facebookID Completed:^(id object) {
+//        NSLog(@"data : %@", [object objectForKey:@"status"]);
+        if (object == nil){
+            [self viewDidLoad];
         }else{
-            PranPranAddProfileViewController * addProfile = [self.storyboard instantiateViewControllerWithIdentifier:@"PranPranAddProfileView"];
-            addProfile.facebookID = self.facebookID;
-            addProfile.name = self.name;
-            [self.navigationController pushViewController:addProfile animated:YES];
+            if([[object objectForKey:@"status"] isEqualToString:@"found"]){
+                UIViewController * viewProfile = [self.storyboard instantiateViewControllerWithIdentifier:@"PranPranProfileView"];
+                [self.navigationController pushViewController:viewProfile animated:YES];
+            }else{
+                PranPranAddProfileViewController * addProfile = [self.storyboard instantiateViewControllerWithIdentifier:@"PranPranAddProfileView"];
+                addProfile.name = self.name;
+                [self.navigationController pushViewController:addProfile animated:YES];
+            }
         }
         [self reloadInputViews];
     } Failure:^(NSError *error) {

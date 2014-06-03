@@ -7,17 +7,15 @@
 //
 
 #import "PranPranProfileViewController.h"
-#import "CoreData.h"
+#import "PranPranAppDelegate.h"
 #import "TrendTableViewCell.h"
 #import "PranPranAPIController.h"
-
 #import "PranPranAddWeightViewController.h"
-
-#import "MEDynamicTransition.h"
-#import "UIViewController+ECSlidingViewController.h"
+#import "PranPranGraphProfleViewController.h"
 
 @interface PranPranProfileViewController ()
-@property (nonatomic, strong) CoreData *coreData;
+@property (nonatomic, strong) FBLoginView *loginview;
+@property (nonatomic, weak) PranPranAppDelegate *appDelegate;
 @property (nonatomic, strong) NSDictionary *profileData;
 @property (strong, nonatomic) CBCentralManager *center;
 @property (nonatomic, strong) NSNumber *resultBefore;
@@ -40,47 +38,48 @@
  */
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
-    if ([(NSObject *)self.slidingViewController.delegate isKindOfClass:[MEDynamicTransition class]]) {
-        MEDynamicTransition *dynamicTransition = (MEDynamicTransition *)self.slidingViewController.delegate;
-        if (!self.dynamicTransitionPanGesture) {
-            self.dynamicTransitionPanGesture = [[UIPanGestureRecognizer alloc] initWithTarget:dynamicTransition action:@selector(handlePanGesture:)];
-        }
-        
-        [self.navigationController.view removeGestureRecognizer:self.slidingViewController.panGesture];
-        [self.navigationController.view addGestureRecognizer:self.dynamicTransitionPanGesture];
-    } else {
-        [self.navigationController.view removeGestureRecognizer:self.dynamicTransitionPanGesture];
-        [self.navigationController.view addGestureRecognizer:self.slidingViewController.panGesture];
+}
+
+-(PranPranAppDelegate *)appDelegate {
+    if (!_appDelegate) {
+        _appDelegate = [[UIApplication sharedApplication] delegate];
     }
+    return _appDelegate;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.loginview = [[FBLoginView alloc] initWithReadPermissions:
+                              @[@"public_profile", @"email", @"user_friends"]];
+    self.loginview.delegate = self;
     // Do any additional setup after loading the view.
     [self.navigationItem setHidesBackButton:YES animated:NO];
     //setup Singleton
 //    [self.navigationItem setTitle];
 //    NSLog(@"profile : %@", self.profileData);
-    
     //set corebluetooth
     self.center = [[CBCentralManager alloc] initWithDelegate:self queue:nil];
     self.resultBefore = [NSNumber numberWithInt:0];
     self.count = [NSNumber numberWithInt:0];
     
-    [PranPranAPIController getDataByFBid:self.facebookID Completed:^(id object) {
-        self.profileData = @{@"name":[object objectForKey:@"data"][0][@"name"],
+    [PranPranAPIController getDataByFBid:self.appDelegate.facebookID Completed:^(id object) {
+        if ([object objectForKey:@"data"] == nil){
+            [self viewDidLoad];
+        }else{
+            self.profileData = @{@"name":[object objectForKey:@"data"][0][@"name"],
                              @"height":[object objectForKey:@"data"][0][@"height"],
                              @"bmi":[object objectForKey:@"data"][1][@"bmi"],
                              @"weight":[object objectForKey:@"data"][1][@"weight"],
                              @"beWeight":[object objectForKey:@"data"][1][@"beforeWeight"],
                              @"beBMI":[object objectForKey:@"data"][1][@"beforeBMI"]
                                                      };
-        self.weightData = [object objectForKey:@"data"][1][@"weight"];
-        NSLog(@"profiledata : %@", self.profileData);
-        [self.tableView reloadData];
+            self.weightData = [object objectForKey:@"data"][1][@"weight"];
+            NSLog(@"profiledata : %@", self.profileData);
+            [self.tableView reloadData];
+        }
     } Failure:^(NSError *error) {
+//        [self viewDidLoad];
         NSLog(@"error : %@", error);
     }];
     
@@ -159,12 +158,12 @@
 
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
     if (buttonIndex == 1) {
-        [PranPranAPIController setWeight:self.facebookID Weight:[NSNumber numberWithFloat:[self.weightData floatValue]] Height:[NSNumber numberWithFloat:[self.profileData[@"height"] floatValue]] Completed:^(id object) {
+        [PranPranAPIController setWeight:self.appDelegate.facebookID Weight:[NSNumber numberWithFloat:[self.weightData floatValue]] Height:[NSNumber numberWithFloat:[self.profileData[@"height"] floatValue]] Completed:^(id object) {
             
         } Failure:^(NSError *error) {
             NSLog(@"error %@", error);
         }];
-        [PranPranAPIController getDataByFBid:self.facebookID Completed:^(id object) {
+        [PranPranAPIController getDataByFBid:self.appDelegate.facebookID Completed:^(id object) {
             self.profileData = @{@"name":[object objectForKey:@"data"][0][@"name"],
                                  @"height":[object objectForKey:@"data"][0][@"height"],
                                  @"bmi":[object objectForKey:@"data"][1][@"bmi"],
@@ -214,10 +213,10 @@
             if ([self.profileData[@"beWeight"] floatValue] != 0.0){
                 float changeWeight = ([self.profileData[@"weight"] floatValue] - [self.profileData[@"beWeight"] floatValue]);
                 float perChangeWeight = changeWeight*100/[self.profileData[@"weight"] floatValue];
-                cellTrend.trendWeight.text = [NSString stringWithFormat:@"change %.1f , perChange %.2f ", changeWeight, perChangeWeight];
+                cellTrend.trendWeight.text = [NSString stringWithFormat:@"Weight change %.1f , perChange %.2f ", changeWeight, perChangeWeight];
                 float changeBMI = ([self.profileData[@"bmi"] floatValue] - [self.profileData[@"beBMI"] floatValue]);
                 float perChangeBMI = changeWeight*100/[self.profileData[@"bmi"] floatValue];
-                cellTrend.trendBMI.text = [NSString stringWithFormat:@"change %.1f , perChange %.2f ", changeBMI, perChangeBMI];
+                cellTrend.trendBMI.text = [NSString stringWithFormat:@"BMI change %.1f , perChange %.2f ", changeBMI, perChangeBMI];
             }else{
                 cellTrend.trendWeight.text = @"Trend Weight : No enough data";
                 cellTrend.trendBMI.text = @"Trend BMI : No enough data";
@@ -226,11 +225,9 @@
             break;
         case 3:
             cell = [tableView dequeueReusableCellWithIdentifier:@"cellGoal"];
-            if ([[self.profileData objectForKey:@"goal"] intValue] == 0) {
-                cell.textLabel.text = @"Goal : not set yet";
-            }else{
-                cell.textLabel.text = [NSString stringWithFormat:@"Goal : %@ Kg", [self.profileData objectForKey:@"goal"]];
-            }
+            self.loginview.frame = CGRectOffset(_loginview.frame, (137-(_loginview.frame.size.width / 2)), (35	-(_loginview.frame.size.height / 2)));
+//            self.loginview.center = self.cell.center;
+            [cell addSubview:self.loginview];
             break;
         default:
             break;
@@ -245,19 +242,24 @@
     return 100.0;
 }
 
-- (NSString *)changeWeightFormat:(NSNumber *)dataIn{
-    int tempFloat = dataIn.intValue%100;
-    int tempInt = dataIn.intValue/100;
-//    NSLog(@"x %f", x.floatValue);
-    return [NSString stringWithFormat:@"%d.%d", tempInt, tempFloat];
-}
-
 - (IBAction)addWeightButton:(id)sender{
     [self.center stopScan];
     PranPranAddWeightViewController * addWeight = [self.storyboard instantiateViewControllerWithIdentifier:@"PranPranAddWeightView"];
-    addWeight.facebookID = self.facebookID;
+    //addWeight.facebookID = self.facebookID;
     addWeight.height = self.profileData[@"height"];
     [self.navigationController pushViewController:addWeight animated:YES];
+}
+
+- (IBAction)viewGrahpButton:(id)sender{
+    [self.center stopScan];
+    PranPranGraphProfleViewController * addWeight = [self.storyboard instantiateViewControllerWithIdentifier:@"PranPranGraphProfleView"];
+    //addWeight.facebookID = self.facebookID;
+    [self.navigationController pushViewController:addWeight animated:YES];
+}
+
+- (void)loginViewShowingLoggedOutUser:(FBLoginView *)loginView {
+    UIViewController *mainView = [self.storyboard instantiateViewControllerWithIdentifier:@"PranPranView"];
+    [self.navigationController pushViewController:mainView animated:YES];
 }
 /*
 #pragma mark - Navigation

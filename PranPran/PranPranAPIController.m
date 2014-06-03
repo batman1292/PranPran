@@ -66,6 +66,22 @@
     }];
 }
 
++ (void)getWeightDataByFBid:(NSString*)fbid Completed:(CompleteHandle)completed Failure:(FailureHandle)failure{
+    //set parameter
+    NSDictionary *parameters = @{@"fbid": fbid};
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    [manager GET:@"http://s2weight.azurewebsites.net/api/GetWeightDataByFBid.php" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSError *localError = nil;
+        NSDictionary *parsedObject = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:&localError];
+        completed(parsedObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        failure(error);
+    }];
+
+}
+
 + (void)setWeight:(NSString *)fbid Weight:(NSNumber *)weight Height:(NSNumber *)height Completed:(CompleteHandle)completed Failure:(FailureHandle)failure{
     //cal bmi
     NSNumber *heightM = [NSNumber numberWithFloat:height.floatValue/100];

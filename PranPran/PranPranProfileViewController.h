@@ -9,10 +9,12 @@
 #import <UIKit/UIKit.h>
 #import <CoreBluetooth/CoreBluetooth.h>
 #import <CoreBluetooth/CBAdvertisementData.h>
+#import <FacebookSDK/FacebookSDK.h>
+#import "SlidingViewController.h"
 
-@interface PranPranProfileViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, CBCentralManagerDelegate>
+@interface PranPranProfileViewController : SlidingViewController <UITableViewDataSource, UITableViewDelegate, CBCentralManagerDelegate, FBLoginViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic) NSString *facebookID;
 
+- (IBAction)viewGrahpButton:(id)sender;
 - (IBAction)addWeightButton:(id)sender;
 @end

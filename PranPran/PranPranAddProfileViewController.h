@@ -17,7 +17,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *dataHeight;
 @property (weak, nonatomic) IBOutlet UITextField *dataWeight;
 
-@property (strong, nonatomic) NSString *facebookID;
 @property (strong, nonatomic) NSString *name;
+
 - (IBAction)saveProfileButton:(id)sender;
 @end

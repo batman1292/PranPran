@@ -8,12 +8,20 @@
 
 #import "PranPranAddProfileViewController.h"
 #import "PranPranAPIController.h"
-#import "PranPranProfileViewController.h"
+#import "PranPranAppDelegate.h"
 
 @interface PranPranAddProfileViewController ()
+@property (nonatomic, weak) PranPranAppDelegate *appDelegate;
 @end
 
 @implementation PranPranAddProfileViewController
+
+-(PranPranAppDelegate *)appDelegate {
+    if (!_appDelegate) {
+        _appDelegate = [[UIApplication sharedApplication] delegate];
+    }
+    return _appDelegate;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -57,7 +65,7 @@
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"กรุณากรอกข้อมูลให้ครบทุกช่อง" delegate:self cancelButtonTitle:@"Back" otherButtonTitles:nil];
         [alert show];
     }else{
-        [PranPranAPIController addProfileIntoDB:self.facebookID
+        [PranPranAPIController addProfileIntoDB:self.appDelegate.facebookID
                                            name:self.dataName.text
                                             age:[NSNumber numberWithInt:[self.dataAge.text intValue]]
                                          gender:[NSNumber numberWithInteger:self.dataGender.selectedSegmentIndex]
@@ -70,13 +78,12 @@
                                         Failure:^(NSError *error) {
                                             NSLog(@"error : %@", error);
                                         }];
-        [PranPranAPIController setWeight:self.facebookID Weight:[NSNumber numberWithFloat:[self.dataWeight.text floatValue]] Height:[NSNumber numberWithFloat:[self.dataHeight.text floatValue]] Completed:^(id object) {
+        [PranPranAPIController setWeight:self.appDelegate.facebookID Weight:[NSNumber numberWithFloat:[self.dataWeight.text floatValue]] Height:[NSNumber numberWithFloat:[self.dataHeight.text floatValue]] Completed:^(id object) {
             
         } Failure:^(NSError *error) {
             NSLog(@"error %@", error);
         }];
-        PranPranProfileViewController * viewProfile = [self.storyboard instantiateViewControllerWithIdentifier:@"PranPranProfileView"];
-        viewProfile.facebookID = self.facebookID;
+        UIViewController * viewProfile = [self.storyboard instantiateViewControllerWithIdentifier:@"PranPranProfileView"];
         [self.navigationController pushViewController:viewProfile animated:YES];
     }
 }
