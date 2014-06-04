@@ -14,13 +14,13 @@
 + (void)checkUserByFBid:(NSString*)fbid Completed:(CompleteHandle)completed Failure:(FailureHandle)failure{
     //set parameter
     NSDictionary *parameters = @{@"fbid": fbid};
-    NSLog(@"parameter : %@", parameters);
+//    NSLog(@"parameter : %@", parameters);
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     [manager GET:@"http://s2weight.azurewebsites.net/api/CheckDataByFBid.php" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSError *localError = nil;
         NSDictionary *parsedObject = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:&localError];
-        NSLog(@"data : %@", parsedObject);
+//        NSLog(@"data : %@", parsedObject);
         completed(parsedObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         failure(error);

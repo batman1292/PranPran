@@ -14,6 +14,8 @@
 #import "PranPranGraphProfleViewController.h"
 
 @interface PranPranProfileViewController ()
+@property (nonatomic, strong) NSTimer *timerKeep;
+//@property (nonatomic, strong) NSNumber *checkKeepWeight;
 @property (nonatomic, strong) FBLoginView *loginview;
 @property (nonatomic, weak) PranPranAppDelegate *appDelegate;
 @property (nonatomic, strong) NSDictionary *profileData;
@@ -23,6 +25,7 @@
 @property (nonatomic, strong) NSNumber *weightData;
 @property (nonatomic, strong) NSTimer *timer;
 @property (nonatomic, strong) UIPanGestureRecognizer *dynamicTransitionPanGesture;
+//@property (nonatomic, strong) BOOL *checkKeepAlert;
 @end
 
 @implementation PranPranProfileViewController
@@ -50,6 +53,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+//    self.checkKeepWeight = [NSNumber numberWithInt:0];
     self.loginview = [[FBLoginView alloc] initWithReadPermissions:
                               @[@"public_profile", @"email", @"user_friends"]];
     self.loginview.delegate = self;
@@ -75,7 +79,7 @@
                              @"beBMI":[object objectForKey:@"data"][1][@"beforeBMI"]
                                                      };
             self.weightData = [object objectForKey:@"data"][1][@"weight"];
-            NSLog(@"profiledata : %@", self.profileData);
+//            NSLog(@"profiledata : %@", self.profileData);
             [self.tableView reloadData];
         }
     } Failure:^(NSError *error) {
@@ -87,6 +91,7 @@
 
 //over write bluetooth method
 - (void)centralManagerDidUpdateState:(CBCentralManager *)central {
+    NSLog(@"start scan2");
     // You should test all scenarios
     if (central.state != CBCentralManagerStatePoweredOn) {
         return;
@@ -98,9 +103,10 @@
 }
 
 - (void)centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)peripheral advertisementData:(NSDictionary *)advertisementData RSSI:(NSNumber *)RSSI {
+    NSLog(@"start scan");
     if ([peripheral.name isEqualToString:@"Lemon"]) {
-        NSTimeInterval currentSeconds = [NSDate timeIntervalSinceReferenceDate];
-        int currentMilliSeconds =  currentSeconds;
+//        NSTimeInterval currentSeconds = [NSDate timeIntervalSinceReferenceDate];
+//        int currentMilliSeconds =  currentSeconds;
         // Save a local copy of the peripheral, soCoreBluetooth doesn't get rid of it
         NSData *data = [advertisementData objectForKey:@"kCBAdvDataManufacturerData"];
         NSRange r;
@@ -127,19 +133,27 @@
                 }
             }
             if (self.resultBefore.intValue == result){
-                NSTimeInterval seconds = [NSDate timeIntervalSinceReferenceDate];
-                int milliseconds = seconds;
-                if (currentMilliSeconds == milliseconds) {
-                    NSLog(@"same seconds");
-                    self.count = [NSNumber numberWithInt:self.count.intValue+1];
-                    if(self.count.intValue > 10){
-                        self.count = [NSNumber numberWithInt:0];
-                        [self.center stopScan];
-                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"%.1f",self.resultBefore.floatValue/10] message:@"That is your Weight?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:nil];
+//                NSTimeInterval seconds = [NSDate timeIntervalSinceReferenceDate];
+//                int milliseconds = seconds;
+//                if (currentMilliSeconds == milliseconds) {
+                NSLog(@"count value : %d", self.count.intValue);
+                
+                if(self.count.intValue > 10){
+//                    NSTimeInterval seconds = [NSDate timeIntervalSinceReferenceDate];
+//                    self.checkKeepWeight = [NSNumber numberWithInt:seconds];
+                    self.count = [NSNumber numberWithInt:0];
+                    [self.center stopScan];
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"%.1f",self.resultBefore.floatValue/10] message:@"That is your Weight?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:nil];
                         // optional - add more buttons:
-                        [alert addButtonWithTitle:@"Yes"];
-                        [alert show];
-                    }
+                    [alert addButtonWithTitle:@"Yes"];
+                    [alert show];
+                }
+//                else if (self.count.intValue != 0 && self.checkKeepWeight.intValue != 0) {
+//                    [self getLastWeight];
+//                    self.checkKeepWeight = [NSNumber numberWithInt:0];
+//                }
+                else{
+                    self.count = [NSNumber numberWithInt:self.count.intValue+1];
                 }
             }else{
                 self.count = [NSNumber numberWithInt:0];
@@ -157,6 +171,7 @@
 }
 
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+    [self.center stopScan];
     if (buttonIndex == 1) {
         [PranPranAPIController setWeight:self.appDelegate.facebookID Weight:[NSNumber numberWithFloat:[self.weightData floatValue]] Height:[NSNumber numberWithFloat:[self.profileData[@"height"] floatValue]] Completed:^(id object) {
             
@@ -173,16 +188,50 @@
                                  };
             self.weightData = [object objectForKey:@"data"][1][@"weight"];
             NSLog(@"profiledata : %@", self.profileData);
-            [self.tableView reloadData];
-            [self.center scanForPeripheralsWithServices:nil options:@{ CBCentralManagerScanOptionAllowDuplicatesKey : @YES }];
+//            [self.tableView reloadData];
+//            [self.center scanForPeripheralsWithServices:nil options:@{ CBCentralManagerScanOptionAllowDuplicatesKey : @YES }];
         } Failure:^(NSError *error) {
             NSLog(@"error : %@", error);
         }];
     }else{
         self.weightData = self.profileData[@"weight"];
-        [self.tableView reloadData];
-        [self.center scanForPeripheralsWithServices:nil options:@{ CBCentralManagerScanOptionAllowDuplicatesKey : @YES }];
+//        [self.tableView reloadData];
+//        [self.center scanForPeripheralsWithServices:nil options:@{ CBCentralManagerScanOptionAllowDuplicatesKey : @YES }];
     }
+    [self.tableView reloadData];
+    self.timerKeep = [NSTimer scheduledTimerWithTimeInterval:5.0
+                                     target:self
+                                   selector:@selector(startCBScan:)
+                                   userInfo:nil
+                                    repeats:NO];
+//    [self.center scanForPeripheralsWithServices:nil options:@{ CBCentralManagerScanOptionAllowDuplicatesKey : @YES }];
+}
+
+- (void)startCBScan:(id) selctor
+{
+    [self getLastWeight];
+    [self.timerKeep invalidate];
+    [self.center scanForPeripheralsWithServices:nil options:@{ CBCentralManagerScanOptionAllowDuplicatesKey : @YES }];
+}
+
+- (void)getLastWeight{
+    [PranPranAPIController getDataByFBid:self.appDelegate.facebookID Completed:^(id object) {
+//        self.profileData = @{@"name":[object objectForKey:@"data"][0][@"name"],
+//                             @"height":[object objectForKey:@"data"][0][@"height"],
+//                             @"bmi":[object objectForKey:@"data"][1][@"bmi"],
+//                             @"weight":[object objectForKey:@"data"][1][@"weight"],
+//                             @"beWeight":[object objectForKey:@"data"][1][@"beforeWeight"],
+//                             @"beBMI":[object objectForKey:@"data"][1][@"beforeBMI"]
+//                             };
+        self.weightData = [object objectForKey:@"data"][1][@"weight"];
+        NSLog(@"profiledata : %@", self.profileData);
+        //            [self.tableView reloadData];
+        //            [self.center scanForPeripheralsWithServices:nil options:@{ CBCentralManagerScanOptionAllowDuplicatesKey : @YES }];
+    } Failure:^(NSError *error) {
+        NSLog(@"error : %@", error);
+    }];
+
+    [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning

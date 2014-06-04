@@ -181,7 +181,6 @@
 			isa = PBXGroup;
 			children = (
 				BFA2A6781935E7EF00596712 /* SlidingViewController.h */,
-				BFA2A6791935E7EF00596712 /* SlidingViewController.m */,
 				BFA2A6771935979D00596712 /* ECS */,
 				BF9C90A7192DAD1C0087684D /* Model */,
 				BFA1CD9A1933073600DF0B74 /* View */,
@@ -252,6 +251,7 @@
 				BF9C90B1192DC1F60087684D /* PranPranProfileViewController.h */,
 				BF9C90B2192DC1F60087684D /* PranPranProfileViewController.m */,
 				BF9C90AE192DB1940087684D /* PranPranAddProfileViewController.h */,
+				BFA2A6791935E7EF00596712 /* SlidingViewController.m */,
 				BF9C90AF192DB1940087684D /* PranPranAddProfileViewController.m */,
 				BF9D9569193DE18A00CA86F7 /* PranPranAddProfileContentViewController.h */,
 				BF9D956A193DE18A00CA86F7 /* PranPranAddProfileContentViewController.m */,

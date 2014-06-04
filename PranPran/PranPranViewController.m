@@ -72,7 +72,7 @@
 // This method will be called when the user information has been fetched
 - (void)loginViewFetchedUserInfo:(FBLoginView *)loginView
                             user:(id<FBGraphUser>)user {
-    NSLog(@"id : %@", user.objectID);
+//    NSLog(@"id : %@", user.objectID);
     self.appDelegate.facebookID = user.objectID;
     self.facebookID = user.objectID;
     self.name = user.name;
@@ -80,9 +80,9 @@
 
 // Implement the loginViewShowingLoggedInUser: delegate method to modify your app's UI for a logged-in user experience
 - (void)loginViewShowingLoggedInUser:(FBLoginView *)loginView {
-    NSLog(@"Delegateid %@", self.appDelegate.facebookID);
+//    NSLog(@"Delegateid %@", self.appDelegate.facebookID);
     if (self.appDelegate.facebookID == nil) {
-        NSLog(@"dkwso");
+//        NSLog(@"dkwso");
         [self viewDidLoad];
     }else{
         [PranPranAPIController checkUserByFBid:self.appDelegate.facebookID Completed:^(id object) {
