@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SlidingViewController.h"
 
-@interface PranPranGraphProfleViewController : UIViewController
+@interface PranPranGraphProfleViewController : SlidingViewController
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *menuBarButton;
+
+- (IBAction)menuButtonTapped:(id)sender;
 
 @end

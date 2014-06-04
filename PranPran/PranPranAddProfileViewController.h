@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SlidingViewController.h"
 
 @interface PranPranAddProfileViewController : UIViewController <UIScrollViewDelegate, UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
@@ -20,4 +21,5 @@
 @property (strong, nonatomic) NSString *name;
 
 - (IBAction)saveProfileButton:(id)sender;
+
 @end

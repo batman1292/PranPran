@@ -14,7 +14,8 @@
 
 @interface PranPranProfileViewController : SlidingViewController <UITableViewDataSource, UITableViewDelegate, CBCentralManagerDelegate, FBLoginViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *menuBarButton;
 
-- (IBAction)viewGrahpButton:(id)sender;
 - (IBAction)addWeightButton:(id)sender;
+- (IBAction)menuButtonTapped:(id)sender;
 @end

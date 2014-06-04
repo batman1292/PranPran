@@ -10,6 +10,7 @@
 #import "PranPranAPIController.h"
 #import "PNChart.h"
 #import "PranPranAppDelegate.h"
+#import "UIViewController+ECSlidingViewController.h"
 
 @interface PranPranGraphProfleViewController ()
 @property (nonatomic, weak) PranPranAppDelegate *appDelegate;
@@ -65,6 +66,9 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)menuButtonTapped:(id)sender {
+    [self.slidingViewController anchorTopViewToRightAnimated:YES];
+}
 /*
 #pragma mark - Navigation
 

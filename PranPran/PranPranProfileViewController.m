@@ -11,11 +11,10 @@
 #import "TrendTableViewCell.h"
 #import "PranPranAPIController.h"
 #import "PranPranAddWeightViewController.h"
-#import "PranPranGraphProfleViewController.h"
+#import "UIViewController+ECSlidingViewController.h"
 
 @interface PranPranProfileViewController ()
 @property (nonatomic, strong) NSTimer *timerKeep;
-//@property (nonatomic, strong) NSNumber *checkKeepWeight;
 @property (nonatomic, strong) FBLoginView *loginview;
 @property (nonatomic, weak) PranPranAppDelegate *appDelegate;
 @property (nonatomic, strong) NSDictionary *profileData;
@@ -24,7 +23,7 @@
 @property (nonatomic, strong) NSNumber *count;
 @property (nonatomic, strong) NSNumber *weightData;
 @property (nonatomic, strong) NSTimer *timer;
-@property (nonatomic, strong) UIPanGestureRecognizer *dynamicTransitionPanGesture;
+//@property (nonatomic, strong) UIPanGestureRecognizer *dynamicTransitionPanGesture;
 //@property (nonatomic, strong) BOOL *checkKeepAlert;
 @end
 
@@ -273,10 +272,6 @@
             cell = cellTrend;
             break;
         case 3:
-            cell = [tableView dequeueReusableCellWithIdentifier:@"cellGoal"];
-            self.loginview.frame = CGRectOffset(_loginview.frame, (137-(_loginview.frame.size.width / 2)), (35	-(_loginview.frame.size.height / 2)));
-//            self.loginview.center = self.cell.center;
-            [cell addSubview:self.loginview];
             break;
         default:
             break;
@@ -299,6 +294,10 @@
     [self.navigationController pushViewController:addWeight animated:YES];
 }
 
+- (IBAction)menuButtonTapped:(id)sender {
+    [self.slidingViewController anchorTopViewToRightAnimated:YES];
+}
+/*
 - (IBAction)viewGrahpButton:(id)sender{
     [self.center stopScan];
     PranPranGraphProfleViewController * addWeight = [self.storyboard instantiateViewControllerWithIdentifier:@"PranPranGraphProfleView"];
@@ -310,6 +309,7 @@
     UIViewController *mainView = [self.storyboard instantiateViewControllerWithIdentifier:@"PranPranView"];
     [self.navigationController pushViewController:mainView animated:YES];
 }
+*/
 /*
 #pragma mark - Navigation
 

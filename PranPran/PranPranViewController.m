@@ -82,13 +82,13 @@
 - (void)loginViewShowingLoggedInUser:(FBLoginView *)loginView {
 //    NSLog(@"Delegateid %@", self.appDelegate.facebookID);
     if (self.appDelegate.facebookID == nil) {
-//        NSLog(@"dkwso");
+        NSLog(@"eksie");
         [self viewDidLoad];
     }else{
         [PranPranAPIController checkUserByFBid:self.appDelegate.facebookID Completed:^(id object) {
 //        NSLog(@"data : %@", [object objectForKey:@"status"]);
                 if([[object objectForKey:@"status"] isEqualToString:@"found"]){
-                    UIViewController * viewProfile = [self.storyboard instantiateViewControllerWithIdentifier:@"PranPranProfileView"];
+                    UIView * viewProfile = [self.storyboard instantiateViewControllerWithIdentifier:@"PranPranSlidingView"];
                     [self.navigationController pushViewController:viewProfile animated:YES];
                 }else{
                     PranPranAddProfileViewController * addProfile = [self.storyboard instantiateViewControllerWithIdentifier:@"PranPranAddProfileView"];
