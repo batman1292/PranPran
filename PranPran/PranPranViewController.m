@@ -20,6 +20,13 @@
 
 @implementation PranPranViewController
 
+-(NSString *) _facebookID{
+    if (!_facebookID){
+        _facebookID = [[NSString alloc] init];
+    }
+    return _facebookID;
+}
+
 -(PranPranAppDelegate *)appDelegate {
     if (!_appDelegate) {
         _appDelegate = [[UIApplication sharedApplication] delegate];
@@ -65,8 +72,7 @@
 // This method will be called when the user information has been fetched
 - (void)loginViewFetchedUserInfo:(FBLoginView *)loginView
                             user:(id<FBGraphUser>)user {
-    NSLog(@"name : %@", user.objectID);
-    NSLog(@"namew : %@", user.name);
+    NSLog(@"id : %@", user.objectID);
     self.appDelegate.facebookID = user.objectID;
     self.facebookID = user.objectID;
     self.name = user.name;
@@ -74,25 +80,26 @@
 
 // Implement the loginViewShowingLoggedInUser: delegate method to modify your app's UI for a logged-in user experience
 - (void)loginViewShowingLoggedInUser:(FBLoginView *)loginView {
-    [PranPranAPIController checkUserByFBid:self.facebookID Completed:^(id object) {
+    NSLog(@"Delegateid %@", self.appDelegate.facebookID);
+    if (self.appDelegate.facebookID == nil) {
+        NSLog(@"dkwso");
+        [self viewDidLoad];
+    }else{
+        [PranPranAPIController checkUserByFBid:self.appDelegate.facebookID Completed:^(id object) {
 //        NSLog(@"data : %@", [object objectForKey:@"status"]);
-//        if ([object objectForKey:@"status"] == nil){
-//            [self viewDidLoad];
-//        }else{
-            if([[object objectForKey:@"status"] isEqualToString:@"found"]){
-                UIViewController * viewProfile = [self.storyboard instantiateViewControllerWithIdentifier:@"PranPranProfileView"];
-                [self.navigationController pushViewController:viewProfile animated:YES];
-            }else{
-                PranPranAddProfileViewController * addProfile = [self.storyboard instantiateViewControllerWithIdentifier:@"PranPranAddProfileView"];
-                addProfile.name = self.name;
-                [self.navigationController pushViewController:addProfile animated:YES];
-            }
-//        }
-        [self reloadInputViews];
-    } Failure:^(NSError *error) {
-        NSLog(@"error : %@", error);
-    }];
-
+                if([[object objectForKey:@"status"] isEqualToString:@"found"]){
+                    UIViewController * viewProfile = [self.storyboard instantiateViewControllerWithIdentifier:@"PranPranProfileView"];
+                    [self.navigationController pushViewController:viewProfile animated:YES];
+                }else{
+                    PranPranAddProfileViewController * addProfile = [self.storyboard instantiateViewControllerWithIdentifier:@"PranPranAddProfileView"];
+                    addProfile.name = self.name;
+                    [self.navigationController pushViewController:addProfile animated:YES];
+                }
+            [self reloadInputViews];
+        } Failure:^(NSError *error) {
+            NSLog(@"error : %@", error);
+        }];
+    }
 }
 
 // Implement the loginViewShowingLoggedOutUser: delegate method to modify your app's UI for a logged-out user experience

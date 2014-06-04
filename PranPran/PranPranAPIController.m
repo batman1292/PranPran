@@ -14,7 +14,7 @@
 + (void)checkUserByFBid:(NSString*)fbid Completed:(CompleteHandle)completed Failure:(FailureHandle)failure{
     //set parameter
     NSDictionary *parameters = @{@"fbid": fbid};
-    
+    NSLog(@"parameter : %@", parameters);
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     [manager GET:@"http://s2weight.azurewebsites.net/api/CheckDataByFBid.php" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
