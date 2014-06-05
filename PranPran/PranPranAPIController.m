@@ -92,13 +92,13 @@
     [convertDateToLocal setTimeZone:[NSTimeZone localTimeZone]];
     [convertDateToLocal setCalendar:[[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar]];
     NSString *date = [convertDateToLocal stringFromDate:[NSDate date]];
-    NSLog(@"timezone : %d", [NSTimeZone localTimeZone].secondsFromGMT);
+    NSLog(@"timezone : %ld", (long)[NSTimeZone localTimeZone].secondsFromGMT);
     //set parameter
     NSDictionary *parameters = @{@"fbid": fbid,
                                  @"weight":[NSString stringWithFormat:@"%0.2f", weight.floatValue],
                                  @"bmi":[NSString stringWithFormat:@"%0.2f", bmi.floatValue],
                                  @"date":date,
-                                 @"timezone":[NSString stringWithFormat:@"%d", [NSTimeZone localTimeZone].secondsFromGMT]
+                                 @"timezone":[NSString stringWithFormat:@"%ld", (long)[NSTimeZone localTimeZone].secondsFromGMT]
                                  };
     NSLog(@"parameters : %@", parameters);
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
@@ -107,6 +107,24 @@
         NSError *localError = nil;
         NSDictionary *parsedObject = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:&localError];
         NSLog(@"data : %@", parsedObject);
+        completed(parsedObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        failure(error);
+    }];
+}
+
++ (void)editProfileDataByFBid:(NSString*)fbid Age:(NSNumber *)age Gender:(NSNumber *)gender Height:(NSNumber *)height Target:(NSNumber *)target Completed:(CompleteHandle)completed Failure:(FailureHandle)failure{
+    NSDictionary *parameters = @{@"fbid":fbid,
+                                 @"goal":[NSString stringWithFormat:@"%.2f", target.floatValue],
+                                 @"gender":[NSString stringWithFormat:@"%d", gender.intValue],
+                                 @"height":[NSString stringWithFormat:@"%d", height.intValue],
+                                 @"age":[NSString stringWithFormat:@"%d", age.intValue]};
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    [manager GET:@"http://s2weight.azurewebsites.net/api/EditProfileData.php" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSError *localError = nil;
+        NSDictionary *parsedObject = [NSJSONSerialization JSONObjectWithData:responseObject options:0 error:&localError];
+        //        NSLog(@"data : %@", parsedObject);
         completed(parsedObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         failure(error);

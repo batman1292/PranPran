@@ -88,7 +88,7 @@
         [PranPranAPIController checkUserByFBid:self.appDelegate.facebookID Completed:^(id object) {
 //        NSLog(@"data : %@", [object objectForKey:@"status"]);
                 if([[object objectForKey:@"status"] isEqualToString:@"found"]){
-                    UIView * viewProfile = [self.storyboard instantiateViewControllerWithIdentifier:@"PranPranSlidingView"];
+                    UIViewController * viewProfile = [self.storyboard instantiateViewControllerWithIdentifier:@"PranPranSlidingView"];
                     [self.navigationController pushViewController:viewProfile animated:YES];
                 }else{
                     PranPranAddProfileViewController * addProfile = [self.storyboard instantiateViewControllerWithIdentifier:@"PranPranAddProfileView"];

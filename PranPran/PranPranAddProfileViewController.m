@@ -78,11 +78,15 @@
                                         Failure:^(NSError *error) {
                                             NSLog(@"error : %@", error);
                                         }];
-        [PranPranAPIController setWeight:self.appDelegate.facebookID Weight:[NSNumber numberWithFloat:[self.dataWeight.text floatValue]] Height:[NSNumber numberWithFloat:[self.dataHeight.text floatValue]] Completed:^(id object) {
+        [PranPranAPIController setWeight:self.appDelegate.facebookID
+                                  Weight:[NSNumber numberWithFloat:[self.dataWeight.text floatValue]]
+                                  Height:[NSNumber numberWithFloat:[self.dataHeight.text floatValue]]
+                               Completed:^(id object) {
             
-        } Failure:^(NSError *error) {
-            NSLog(@"error %@", error);
-        }];
+                               }
+                                 Failure:^(NSError *error) {
+                                     NSLog(@"error %@", error);
+                                 }];
         UIViewController * viewProfile = [self.storyboard instantiateViewControllerWithIdentifier:@"PranPranProfileView"];
         [self.navigationController pushViewController:viewProfile animated:YES];
     }

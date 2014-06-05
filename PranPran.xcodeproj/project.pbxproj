@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AFB345AD20FD44B6B5214171 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 620ED150DF7341DEAB1BEF6D /* libPods.a */; };
-		BF998CFC192E2FE60082D400 /* PranPranEditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF998CFB192E2FE60082D400 /* PranPranEditProfileViewController.m */; };
+		BF8A231B1940295000A01E86 /* PranPranSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8A231A1940295000A01E86 /* PranPranSettingViewController.m */; };
 		BF9C906A192DA7910087684D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF9C9069192DA7910087684D /* Foundation.framework */; };
 		BF9C906C192DA7910087684D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF9C906B192DA7910087684D /* CoreGraphics.framework */; };
 		BF9C906E192DA7910087684D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF9C906D192DA7910087684D /* UIKit.framework */; };
@@ -59,8 +59,8 @@
 /* Begin PBXFileReference section */
 		620ED150DF7341DEAB1BEF6D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB63D553809D481F8829BA68 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = ../Pods/Pods.xcconfig; sourceTree = "<group>"; };
-		BF998CFA192E2FE60082D400 /* PranPranEditProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PranPranEditProfileViewController.h; sourceTree = "<group>"; };
-		BF998CFB192E2FE60082D400 /* PranPranEditProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PranPranEditProfileViewController.m; sourceTree = "<group>"; };
+		BF8A23191940295000A01E86 /* PranPranSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PranPranSettingViewController.h; sourceTree = "<group>"; };
+		BF8A231A1940295000A01E86 /* PranPranSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PranPranSettingViewController.m; sourceTree = "<group>"; };
 		BF9C9066192DA7910087684D /* PranPran.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PranPran.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF9C9069192DA7910087684D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BF9C906B192DA7910087684D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -148,6 +148,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BF9AD5561940258F0059F4D9 /* Prototype */ = {
+			isa = PBXGroup;
+			children = (
+				BFA2A6781935E7EF00596712 /* SlidingViewController.h */,
+				BFA2A6791935E7EF00596712 /* SlidingViewController.m */,
+			);
+			name = Prototype;
+			sourceTree = "<group>";
+		};
+		BF9AD5571940259E0059F4D9 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				BFA1CDE219335A8E00DF0B74 /* PranPranAPIController.h */,
+				BFA1CDE319335A8E00DF0B74 /* PranPranAPIController.m */,
+			);
+			name = API;
+			sourceTree = "<group>";
+		};
 		BF9C905D192DA7900087684D = {
 			isa = PBXGroup;
 			children = (
@@ -183,8 +201,8 @@
 		BF9C906F192DA7910087684D /* PranPran */ = {
 			isa = PBXGroup;
 			children = (
-				BFA2A6781935E7EF00596712 /* SlidingViewController.h */,
-				BFA2A6791935E7EF00596712 /* SlidingViewController.m */,
+				BF9AD5571940259E0059F4D9 /* API */,
+				BF9AD5561940258F0059F4D9 /* Prototype */,
 				BF9C90A7192DAD1C0087684D /* Model */,
 				BFA1CD9A1933073600DF0B74 /* View */,
 				BF9E68A7193F2889004B31B7 /* ECS */,
@@ -196,8 +214,6 @@
 				BF9C907F192DA7910087684D /* PranPranViewController.m */,
 				BF9C9081192DA7910087684D /* Images.xcassets */,
 				BF9C9070192DA7910087684D /* Supporting Files */,
-				BFA1CDE219335A8E00DF0B74 /* PranPranAPIController.h */,
-				BFA1CDE319335A8E00DF0B74 /* PranPranAPIController.m */,
 			);
 			path = PranPran;
 			sourceTree = "<group>";
@@ -279,12 +295,12 @@
 				BF9C90AF192DB1940087684D /* PranPranAddProfileViewController.m */,
 				BF9D9569193DE18A00CA86F7 /* PranPranAddProfileContentViewController.h */,
 				BF9D956A193DE18A00CA86F7 /* PranPranAddProfileContentViewController.m */,
-				BF998CFA192E2FE60082D400 /* PranPranEditProfileViewController.h */,
-				BF998CFB192E2FE60082D400 /* PranPranEditProfileViewController.m */,
 				BFA2A6901935FB1000596712 /* PranPranGraphProfleViewController.h */,
 				BFA2A6911935FB1000596712 /* PranPranGraphProfleViewController.m */,
 				BF9C90B7192DF3870087684D /* PranPranAddWeightViewController.h */,
 				BF9C90B8192DF3870087684D /* PranPranAddWeightViewController.m */,
+				BF8A23191940295000A01E86 /* PranPranSettingViewController.h */,
+				BF8A231A1940295000A01E86 /* PranPranSettingViewController.m */,
 				BF9E688F193F18F4004B31B7 /* PranPranMenuViewController.h */,
 				BF9E6890193F18F4004B31B7 /* PranPranMenuViewController.m */,
 			);
@@ -442,12 +458,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF9E68A1193F2884004B31B7 /* MESettingsViewController.m in Sources */,
+				BF8A231B1940295000A01E86 /* PranPranSettingViewController.m in Sources */,
 				BFA1CDE419335A8E00DF0B74 /* PranPranAPIController.m in Sources */,
 				BF9E68A5193F2884004B31B7 /* MEZoomAnimationController.m in Sources */,
 				BF9C90B0192DB1940087684D /* PranPranAddProfileViewController.m in Sources */,
 				BF9C907A192DA7910087684D /* PranPranAppDelegate.m in Sources */,
 				BF9C9076192DA7910087684D /* main.m in Sources */,
-				BF998CFC192E2FE60082D400 /* PranPranEditProfileViewController.m in Sources */,
 				BF9C90B6192DC4AE0087684D /* Profile.m in Sources */,
 				BF9C9080192DA7910087684D /* PranPranViewController.m in Sources */,
 				BF9E68A3193F2884004B31B7 /* METransitionsViewController.m in Sources */,

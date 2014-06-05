@@ -98,7 +98,9 @@
     } else if ([menuItem isEqualToString:@"Social"]) {
         self.slidingViewController.topViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"MESettingsNavigationController"];
     } else if ([menuItem isEqualToString:@"Setting"]) {
-        self.slidingViewController.topViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"MESettingsNavigationController"];
+        UINavigationController *nav = [self.storyboard instantiateViewControllerWithIdentifier:@"PranPranSettingNavigationcontroller"];
+        self.slidingViewController.topViewController = nav;
+        [self.slidingViewController resetTopViewAnimated:YES];
     }
     //else if ([menuItem isEqualToString:@"Logout"]) {
         //self.slidingViewController.topViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"MESettingsNavigationController"];
